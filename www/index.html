@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--
+			<link rel="stylesheet" href="css/index.css">
+		-->		
+		<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="_assets/css/jqm-demos.css"> 
+		<script src="js/jquery.js"></script>
+		<script src="_assets/js/index.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		
+		<link rel="stylesheet" href="css/project.css">
+		  
+        <title></title>
+		
+    </head>
+    <body>
+	
+		
+<div data-role="page" id="loginpage">
+
+	<div data-role="header" data-position="fixed">
+		<h1 class="header-text">Crowd Counter</h1> 
+	</div><!-- /header -->
+	
+	<div role="main" class="ui-content">
+		<h3>sign in</h3>
+		<img src="img/topimage.png" width="50%" style="margin:0 auto;display:block" />
+		<label for="txt-email">Email Address</label>
+		<input type="text" name="txt-email" id="txt-email" value="">
+		
+		<label for="txt-password">Password</label>
+		<input type="password" name="txt-password" id="txt-password" value="">
+		 
+		<button class="ui-btn" id="btn-login">Login</button>
+		<button class="ui-btn" id="navRegister">Register</button>
+		
+	</div>
+	
+</div>
+
+<div data-role="page" id="registerpage">
+
+	<div data-role="header" data-position="fixed">
+		<h1 class="header-text">Crowd Counter</h1> 
+	</div><!-- /header -->
+	
+	<div role="main" class="ui-content">
+		<h3>Register</h3>
+		<img src="img/topimage.png" width="50%" style="margin:0 auto;display:block" />
+		
+		<label for="txt-fname">Firstname</label>
+		<input type="text" name="txt-fname" id="txt-fname" value="" />
+
+		<label for="txt-lname">Lastname</label>
+		<input type="text" name="txt-lname" id="txt-lname" value="" />
+
+
+		<label for="txt-email">email address</label>
+		<input type="text" name="txt-email" id="txt-regemail" value="" />
+		
+		<label for="txt-password">Password</label>
+		<input type="password" name="txt-password" id="txt-regpassword" value="" />
+		
+		<div id="registererrormessage">...</div>
+
+		<button class="ui-btn" id="btn-register">Register</button>
+		
+		<button class="ui-btn btnlogout" href="#loginpage">Login</button>
+		
+	</div>
+	
+</div>
+ 	
+		
+		<!-- Start of home counter -->
+<div data-role="page" id="homecounter">
+	 
+	<div data-role="header" data-position="fixed">
+	
+		<h1 class="header-text">Crowd Counter</h1>
+		
+		<a data-icon="power" class="ui-btn-right btnlogout" data-theme="b">Log out</a>
+		 
+		
+		<div class="ui-corner-all custom-corners">
+			<div class="ui-bar ui-bar-a">
+				<h3 class="text-center"><strong class="eventname">x y z t w e</strong> <br /><strong class="eventid">x y z t w e</strong></h3>
+			</div>
+			
+			<span class="maincount"><i class="sumcount"></i>/<i class="allaud"></i></span>
+			
+			<div class="ui-body ui-body-a contenttop">
+				<div id="scanningarea"><img id="" src="img/boxentriq-qr-sample.png" /></div>
+			</div>
+		</div>
+		
+	</div><!-- /header -->
+	
+	
+	<div role="main" class="ui-content">
+		 
+				 
+		<ul data-role="listview" data-inset="true" id="partcounter" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+
+		</ul>
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul> 
+				<li>
+					<button class="ui-btn ui-icon-delete ui-btn-icon-top" data-navto="createevent" id="navleave">Leave</button>
+				</li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+		<!-- end of home counter -->
+
+<!-- Start of create Event -->
+<div data-role="page" id="createevent">
+	 
+	<div data-role="header" data-position="fixed">
+		
+		<h1 class="header-text">Crowd Counter</h1>
+		<a data-icon="power" class="ui-btn-right btnlogout" data-theme="b">Log out</a>
+		 <div class="ui-corner-all custom-corners">
+			<div class="ui-bar ui-bar-a">
+				<h5 class="text-center fullnamecap"></h5>
+			</div>
+			 
+			 
+		</div>
+	</div><!-- /header -->
+	
+	
+	<div role="main" class="ui-content">
+	
+		<div class="qrcodeimg">
+			<img id="eventqrcode"/>
+		</div>
+	
+		<label for="text-basic">Event Name</label><input type="text" name="text-basic" id="txt-event" value="Event Name Live Concert">
+		<label for="text-basicx">Number of invited audience</label><input type="text" name="text-basicx" id="txt-audience" value="1000"> 
+		<button class="ui-btn" id="btn-createEvent">Create Event</button>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul> 
+				<li> 
+					<button class="ui-btn ui-icon-search ui-btn-icon-top" data-navto="joinevent" id="navjoinevent">Join Event</button>
+				</li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+		<!-- end of create Event -->
+    
+		<!-- Start of join event -->
+<div data-role="page" id="joinevent">
+	 
+	<div data-role="header" data-position="fixed">
+		<h1 class="header-text">Crowd Counter</h1>
+		<a data-icon="power" class="ui-btn-right btnlogout" data-theme="b">Log out</a>
+		 <div class="ui-corner-all custom-corners">
+			<div class="ui-bar ui-bar-a">
+				<h5 class="text-center fullnamecap"></h5>
+			</div> 
+		</div>
+	</div><!-- /header -->
+	
+	
+	<div role="main" class="ui-content">
+	
+		<img src="img/topimage.png" width="50%" style="margin:0 auto;display:block" />
+	 
+		<label for="text-basic">Event Code</label><input type="text" name="text-basic" id="txt-joinevent" value="<< event code >>">
+		<button class="ui-btn" id="btnjoinevent" data-navto="homecounter">Join Event</button>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul> 
+				<li> 
+					<button class="ui-btn ui-icon-plus ui-btn-icon-top" data-navto="createevent" id="navjoinevent">Create Event</button>
+				</li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="waitingpage">
+	 
+	<div data-role="header" data-position="fixed">
+		<h1 class="header-text">Crowd Counter</h1>
+		<a data-icon="power" class="ui-btn-right btnlogout" data-theme="b">Log out</a>
+		 <div class="ui-corner-all custom-corners">
+			<div class="ui-bar ui-bar-a">
+				<h5 class="text-center fullnamecap"></h5>
+			</div> 
+		</div>
+	</div><!-- /header -->
+	
+	
+	<div role="main" class="ui-content">
+	
+		<img src="img/topimage.png" width="50%" style="margin:0 auto;display:block" />
+	 
+		<h2>Joining <span class="eventname">eventname</span></h2>
+		
+		<button class="ui-btn" id="cancelwaiting" data-navto="homecounter">Cancel</button>
+	</div><!-- /content -->
+	
+	 
+
+</div><!-- /page -->
+		<!-- end of join event -->
+       		
+		<!-- dialog page  id ="page2"-->
+    <div id="page2" data-role="page">
+        <div data-role="header">	
+           <h1>Assign participant to</h1>
+        </div>        
+        <div data-role="content">
+			<input type="hidden" id="tojoinid" />
+			<form><label for="text-1" id="tojoin"></label><input type="text" name="text-1" id="txtgate" value=""><label for="text-3"></label>
+				<a href="#" data-role="button" data-rel="back" id="acceptparticipant" class="ui-link ui-btn ui-shadow ui-corner-all" role="button" data-transition="pop">Ok</a>
+				<a href="#" data-role="button" data-rel="back" id="removeparticipant" class="ui-link ui-btn ui-shadow ui-corner-all" role="button" data-transition="pop">Remove</a>
+			</form>
+        </div>        
+    </div>
+	 
+		<script src="mainjs.js"></script>
+
+    </body>
+</html>
